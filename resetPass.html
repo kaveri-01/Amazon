@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="https://www.freepnglogos.com/uploads/amazon-png-logo-vector/amazon-icon-symbol-png-logo-21.png"
+    />
+    <link rel="stylesheet" href="./mobie.css" />
+    <script
+      src="https://kit.fontawesome.com/d98822fee5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Reset Password</title>
+  </head>
+  <body>
+    <div class="log-page">
+      <div>
+        <div id="reg-page-logo">
+          <img
+            src="https://cdn.freebiesupply.com/images/large/2x/amazon-logo-transparent.png"
+            alt="amezon"
+          />
+        </div>
+        <div class="log-page-main">
+          <div class="log-page-main-top"><h2>Reset Password</h2></div>
+
+          <div id="change" class="log-in-form">
+            <form onsubmit="verify(event)">
+              <label class="log-label">Email </label>
+              <input
+                type="Email"
+                id="email"
+                class="form-input log-input"
+                placeholder="Enter User Name"
+                required
+              />
+
+              <input type="submit" class="log-input form-btn" value="Continue" />
+            </form>
+          </div>
+
+          <div class="log-pag-bot">
+            <div>
+              <p>
+                By continuing, you agree to Amazon's
+                <span>Conditions of Use</span> and <span>Privacy Notice.</span>
+              </p>
+            </div>
+            <div>
+              <p><span>Need Help</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="move-to-signin">
+      <div>
+        <textfield>
+          <legend>New to Amezon</legend>
+        </textfield>
+      </div>
+      <button onclick="window.location.href='/register.html'">Create Your Amezon Account</button>
+    </div>
+
+    <footer>
+      <div>
+        <div>
+          <p>Conditions of Use</p>
+          <p>Privacy Notice</p>
+          <p>Help</p>
+        </div>
+        <div>
+          <p>© 1996-2023, Amazon.com, Inc. or its affiliates</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/server.js"></script>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      href="https://www.freepnglogos.com/uploads/amazon-png-logo-vector/amazon-icon-symbol-png-logo-21.png"
+    />
+    <link rel="stylesheet" href="./mobie.css" />
+    <script
+      src="https://kit.fontawesome.com/d98822fee5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Cart</title>
+  </head>
+  <body>
+    <div id="full-page">
+      <div id="navbar">
+        <div id="navbar-top">
+          <!-- /* navbar-top first div */ -->
+          <div>
+            <img
+              src="https://www.freepnglogos.com/uploads/amazon-png-logo-vector/amazon-symbol-png-logo-vector-9.png"
+              alt="amezon"
+            />
+          </div>
+          <!-- /* navbar-top second div */ -->
+          <div class="nav-head">
+            <p>Hello</p>
+            <div>
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Select your address</p>
+            </div>
+          </div>
+          <!-- /* navbar-top third div */ -->
+          <div>
+            <select>
+              <option value="All">All</option>
+              <option value="">Amexon Fresh</option>
+              <option value="">Amezon Fashion</option>
+              <option value="">Amezon Devices</option>
+            </select>
+
+            <input type="search" placeholder="Search Amezon .In" />
+
+            <div>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+
+          <!-- /* navbar-top fourth div */ -->
+          <div>
+            <div>
+              <img
+                src="https://img.freepik.com/free-vector/illustration-india-flag_53876-27130.jpg?t=st=1676357795~exp=1676358395~hmac=d951f9cdf2dabb64e79085c92ab0690c4129696375efe1e84c0cd3cf8b9374a5"
+                alt="flage-india"
+              />
+            </div>
+            <div>
+              <select>
+                <option value="EN">EN</option>
+                <option value="Hindi">Hindi</option>
+              </select>
+            </div>
+          </div>
+          <!-- /* navbar-top fifth div */ -->
+
+          <div class="nav-head">
+            <p>Hello, sign In</p>
+            <div>
+              <p>Accounts & Lists</p>
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
+          </div>
+
+          <!-- /* navbar-top sixth div */ -->
+
+          <div class="nav-head">
+            <p>Returns</p>
+            <div>
+              <p>&Orders</p>
+            </div>
+          </div>
+          <!-- /* navbar-top seventh div */ -->
+          <div>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>Cart</p>
+          </div>
+        </div>
+        <!-- Navbar-bottom -->
+        <div id="navbar-bot">
+          <div>
+            <div class="align-nav">
+              <i class="fa-solid fa-bars"></i>
+              <p>All</p>
+            </div>
+            <div>
+              <p>Amezon MiniTv</p>
+            </div>
+            <div>
+              <p>Best Sellers</p>
+            </div>
+            <div>
+              <p>Mobiles</p>
+            </div>
+            <div>
+              <p>Customer Services</p>
+            </div>
+            <div>
+              <p>Todays's Deal</p>
+            </div>
+            <div>
+              <p>Electronics</p>
+            </div>
+            <div>
+              <p>Amezon Pay</p>
+            </div>
+            <div class="align-nav">
+              <p>Prime</p>
+              <i class="fa-solid fa-caret-down"></i>
+            </div>
+            <div>
+              <p>Fashion</p>
+            </div>
+            <div>
+              <p>New Release</p>
+            </div>
+          </div>
+          <!-- /////////////////////////////// -->
+          <div id="mob-nav-bot">
+            <div>
+              <div>
+                <p>Shop by</p>
+                <h4>Category</h4>
+              </div>
+              <div>
+                <h4>Whish list</h4>
+              </div>
+              <div>
+                <h4>Deal</h4>
+              </div>
+              <div>
+                <h4>sell</h4>
+              </div>
+            </div>
+            <div>
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Select a location to see product availability</p>
+            </div>
+          </div>
+          <!-- ////////////////////////////////// -->
+          <div>
+            <img
+              src="https://m.media-amazon.com/images/G/31/AmazonVideo/2021/X-site/SingleTitle/Farzi-Launch/400x39-SWM_NP._CB613859124_.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div id="cart-body">
+        <div id="cart-body-left">
+          
+        </div>
+        <div id="cart-body-right">
+          <div>
+            <p>2(items) : ₹500</p>
+            <p>order contains gift</p>
+            <button onclick="buy()">Proceed to Pay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/server.js"></script>
+    <script>
+      window.onload=function(){
+        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      if (!currentUser) {
+        alert(" Log in to add cart");
+        window.location.href = "/login.html";
+      }
+      else{
+          var dataFromLs= JSON.parse(localStorage.getItem("userData"));
+          var displayProduct;
+          var flag= false;
+          for(var i=0; i<dataFromLs.length; i++){
+            if(dataFromLs[i].email === currentUser["currentUserEmail"] && dataFromLs[i].cartProducts.length >0){
+              displayProduct =dataFromLs[i].cartProducts; 
+              flag =true;
+            }
+          }
+
+          if(flag){
+            var divFromHtml =document.getElementById("cart-body-left");
+            var displayHtml =[];
+            for(var i=0;i<displayProduct.length;i++){
+              displayHtml +=`<div>
+            <div><img src="${displayProduct[i].image}" /></div>
+            <div>
+              <p>${displayProduct[i].name}</p>
+              <p>₹ ${displayProduct[i].price}</p>
+            </div>
+            <div>
+              <p class='green'>Prodduct is added into the cart</p>
+            </div>
+          </div>`;
+            }
+
+            divFromHtml.innerHTML=displayHtml;
+          }
+          else{
+            alert("cart is empty");
+            window.location.href ='/displayproduct.html';
+          }
+      }
+      };
+
+      function buy(){
+        // alert("working");
+        var currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        var dataFromLs= JSON.parse(localStorage.getItem("userData"));
+        var cart =[];
+
+        
+        for(var i=0; i<dataFromLs.length; i++){
+          if(dataFromLs[i].email === currentUser["currentUserEmail"] && dataFromLs[i].cartProducts){
+            dataFromLs[i].cartProducts= [];
+            cart.push(dataFromLs[i]);
+          }
+          else{
+            cart.push(dataFromLs[i]);
+          }
+        }
+        console.log(cart);
+        localStorage.setItem("userData",JSON.stringify(cart));
+        window.location.reload();
+        alert("Product will be dilevered soon");
+
+      }
+      
+    </script>
+  </body>
+</html>
